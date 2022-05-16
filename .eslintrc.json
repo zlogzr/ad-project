@@ -1,0 +1,14 @@
+{
+  "env": {
+    "browser": true
+  },
+  "extends": [
+    "airbnb"
+  ],
+  "rules": {
+    "react/prefer-stateless-function": "off",
+    "jsx-quotes": "off", // 单引号
+    "linebreak-style": "off", // 换行符
+    "semi": "off" // 分号
+  }
+}
