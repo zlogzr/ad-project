@@ -20,7 +20,8 @@
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "no-use-before-define": "off",
     "comma-dangle": "off", // 对象后逗号
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "no-console": "off"
   },
   "settings": {
     "import/resolver": {

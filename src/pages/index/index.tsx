@@ -12,6 +12,7 @@ class IndexPage extends Component<Props> {
       console.log(error)
     })
   }
+
   render() {
     return (
       <div className='index-page'>
