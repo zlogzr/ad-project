@@ -1,14 +1,20 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+const devMode = process.env.NODE_ENV !== 'production'
 
 const webpackBaseConfig = {
   entry: path.join(__dirname, '../src/index.jsx'),
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: '[name].[fullhase:4].js'
+    filename: '[name].[fullhash:4].js'
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx']
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    alias: {
+      pages: path.join(__dirname, '../src/pages')
+    }
   },
   module: {
     rules: [
@@ -22,7 +28,11 @@ const webpackBaseConfig = {
       },
       {
         test: /\.(sc|c)ss/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: [
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader'
+        ]
       }
     ]
   },
