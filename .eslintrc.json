@@ -5,6 +5,11 @@
   "extends": [
     "airbnb"
   ],
+  "parser": "@typescript=eslint/parse",
+  "plugins": [
+    "react",
+    "@typescript-eslint"
+  ],
   "rules": {
     "react/prefer-stateless-function": "off",
     "jsx-quotes": "off", // 单引号
