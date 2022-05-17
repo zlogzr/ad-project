@@ -1,7 +1,12 @@
+const path = require('path')
 const webpack = require('webpack')
 const { merge } = require('webpack-merge')
 const OpenBrowserPlugin = require('open-browser-webpack4-plugin')
+const SpeedMeasurePlugin = require("speed-measure-webpack-plugin")
 const webpackBaseConfig = require('./webpack.base.config')
+const mockMiddleware = require('./mock.config')
+
+const smp = new SpeedMeasurePlugin()
 
 const PORT = 8080
 const webpackDevConfig = {
@@ -12,7 +17,19 @@ const webpackDevConfig = {
       url: `http://localhost:${PORT}`
     }),
   ],
-  devtool: 'eval-source-map'
+  devtool: 'eval-source-map',
+  devServer: {
+    contentBase: path.join(__dirname, '.'),
+    historyApiFallback: false,
+    hot: false,
+    host: '0.0.0.0',
+    port: PORT,
+    before(app) {
+      const projectDir = path.resolve()
+      const mockDir = './mock'
+      app.use(mockMiddleware({ projectDir, mockDir }))
+    }
+  }
 }
 
-module.exports = merge(webpackBaseConfig, webpackDevConfig)
+module.exports = smp.wrap(merge(webpackBaseConfig, webpackDevConfig))
