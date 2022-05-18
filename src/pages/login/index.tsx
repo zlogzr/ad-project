@@ -1,18 +1,10 @@
-import React, { Component } from 'react'
-import { DatePicker } from 'antd'
+import React from 'react'
 
-interface Props { }
-
-class LoginPage extends Component<Props> {
-  render() {
-    return (
-      <div className='red'>
-        Hello, React
-        <span>Here is login page</span>
-        <DatePicker />
-      </div>
-    )
-  }
-}
+const LoginPage = () => (
+  <div className='red'>
+    Hello, React
+    <span>Here is login page</span>
+  </div>
+)
 
 export default LoginPage

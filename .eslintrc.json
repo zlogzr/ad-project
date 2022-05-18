@@ -21,15 +21,19 @@
     "no-use-before-define": "off",
     "comma-dangle": "off", // 对象后逗号
     "import/no-extraneous-dependencies": "off",
-    "no-console": "off"
+    "object-curly-newline": "off",
+    "no-plusplus": "off", // ++ 限制
+    "no-console": "off", // log 限制
+    "react/self-closing-comp": "off", // html 自闭
+    "no-unused-vars": "off" // 未使用
   },
   "settings": {
     "import/resolver": {
         "alias": {
             "map": [
-                ["pages", "./src/pages"],
+                ["Pages", "./src/pages"],
                 ["common", "./src/common"],
-                ["@utils", "./src/utils"],
+                ["Utils", "./src/utils"],
                 ["@components", "./src/components"],
                 ["context", "./src/context"],
                 ["api", "./src/api"],

@@ -5,8 +5,8 @@ import { ConfigProvider } from 'antd'
 import zhCN from 'antd/lib/locale/zh_CN'
 import 'antd/dist/antd.css'
 
-import IndexPage from 'pages/index'
-import LoginPage from 'pages/login'
+import IndexPage from 'Pages/index'
+import LoginPage from 'Pages/login'
 
 const allRouters = [
   {
