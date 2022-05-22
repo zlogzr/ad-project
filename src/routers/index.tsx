@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component, Suspense, lazy } from 'react'
 import { HashRouter as Router, Redirect, Switch } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config'
 import { ConfigProvider } from 'antd'
 import zhCN from 'antd/lib/locale/zh_CN'
 import 'antd/dist/antd.css'
 
-import IndexPage from 'Pages/index'
-import LoginPage from 'Pages/login'
+const IndexPage = lazy(() => import('Pages/index'))
+const LoginPage = lazy(() => import('Pages/login'))
 
-const allRouters = [
+const allRouters: {}[] = [
   {
     path: '/index',
     exact: false,
@@ -27,12 +27,14 @@ class AppRouter extends Component {
   render() {
     return (
       <ConfigProvider locale={zhCN}>
-        <Router>
-          <Switch>
-            <Redirect exact from='/' to='/index' />
-            {renderRoutes(allRouters.map((item) => ({ ...item, key: item.path })))}
-          </Switch>
-        </Router>
+        <Suspense fallback={<div>正在加载中...</div>}>
+          <Router>
+            <Switch>
+              <Redirect exact from='/' to='/index' />
+              {renderRoutes(allRouters)}
+            </Switch>
+          </Router>
+        </Suspense>
       </ConfigProvider>
     )
   }

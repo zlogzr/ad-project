@@ -16,6 +16,8 @@ const webpackBaseConfig = {
     alias: {
       Pages: path.join(__dirname, '../src/pages'),
       Utils: path.join(__dirname, '../src/utils'),
+      Components: path.join(__dirname, '../src/components'),
+      Common: path.join(__dirname, '../src/common')
     }
   },
   module: {

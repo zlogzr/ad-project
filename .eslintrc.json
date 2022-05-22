@@ -25,16 +25,22 @@
     "no-plusplus": "off", // ++ 限制
     "no-console": "off", // log 限制
     "react/self-closing-comp": "off", // html 自闭
-    "no-unused-vars": "off" // 未使用
+    "no-unused-vars": "off", // 未使用
+    "arrow-body-style": "off", // return
+    "react/require-default-props": "off",
+    "react/no-unused-prop-types": "off",
+    "max-len": ["error", 200],
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off"
   },
   "settings": {
     "import/resolver": {
         "alias": {
             "map": [
                 ["Pages", "./src/pages"],
-                ["common", "./src/common"],
                 ["Utils", "./src/utils"],
-                ["@components", "./src/components"],
+                ["Components", "./src/components"],
+                ["Common", "./src/common"],
                 ["context", "./src/context"],
                 ["api", "./src/api"],
                 ["store", "./src/store"]
