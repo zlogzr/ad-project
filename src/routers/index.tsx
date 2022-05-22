@@ -7,12 +7,19 @@ import 'antd/dist/antd.css'
 
 const IndexPage = lazy(() => import('Pages/index'))
 const LoginPage = lazy(() => import('Pages/login'))
+const SearchPromotionPage = lazy(() => import('Pages/searchPromotion'))
 
 const allRouters: {}[] = [
   {
     path: '/index',
     exact: false,
     component: IndexPage,
+    title: '',
+  },
+  {
+    path: '/searchPromotion',
+    exact: false,
+    component: SearchPromotionPage,
     title: '',
   },
   {

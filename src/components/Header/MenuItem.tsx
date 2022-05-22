@@ -19,7 +19,7 @@ class MenuItem extends Component<Iprops> {
     const { menuItemInfo } = this.props
     return (
       <div className='header-menuItem-component-box'>
-        <div className='menu-item-title'>
+        <div className='menu-item-title' onClick={() => { this.handleMenuClick(menuItemInfo.url) }}>
           {menuItemInfo.name}
           {menuItemInfo.menuChildren.length > 0 && (<span className='arrow-icon'></span>)}
         </div>
@@ -29,7 +29,7 @@ class MenuItem extends Component<Iprops> {
         {
           menuItemInfo.isActive && (<div className='bottom-line-active'> </div>)
         }
-        {/* hover 时显示 */}
+        {/* hover 时显示下拉 */}
         {
           menuItemInfo.menuChildren.length > 0 && (
             <div className='menu-children-box'>
