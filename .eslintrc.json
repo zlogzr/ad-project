@@ -2,22 +2,23 @@
   "env": {
     "browser": true
   },
-  "extends": [
-    "airbnb"
-  ],
+  "extends": ["airbnb"],
   "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "react",
-    "@typescript-eslint"
-  ],
+  "plugins": ["react", "@typescript-eslint"],
   "rules": {
     "react/prefer-stateless-function": "off",
     "jsx-quotes": "off", // 单引号
     "linebreak-style": "off", // 换行符
     "semi": "off", // 分号
-    "import/no-unresolved": ["error", { "ignore": [".png$", ".webp$", ".jpg$"] }],
+    "import/no-unresolved": [
+      "error",
+      { "ignore": [".png$", ".webp$", ".jpg$"] }
+    ],
     "import/extensions": ["error", "never", { "svg": "always" }],
-    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "react/jsx-filename-extension": [
+      "error",
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ],
     "no-use-before-define": "off",
     "comma-dangle": "off", // 对象后逗号
     "import/no-extraneous-dependencies": "off",
@@ -38,18 +39,18 @@
   },
   "settings": {
     "import/resolver": {
-        "alias": {
-            "map": [
-                ["Pages", "./src/pages"],
-                ["Utils", "./src/utils"],
-                ["Components", "./src/components"],
-                ["Common", "./src/common"],
-                ["context", "./src/context"],
-                ["api", "./src/api"],
-                ["store", "./src/store"]
-            ],
-            "extensions": [".ts", ".tsx", ".js", ".jsx", ".json", ".d.ts"]
-        }
+      "alias": {
+        "map": [
+          ["Pages", "./src/pages"],
+          ["Utils", "./src/utils"],
+          ["Components", "./src/components"],
+          ["Common", "./src/common"],
+          ["context", "./src/context"],
+          ["api", "./src/api"],
+          ["store", "./src/store"]
+        ],
+        "extensions": [".ts", ".tsx", ".js", ".jsx", ".json", ".d.ts"]
+      }
     }
   }
 }

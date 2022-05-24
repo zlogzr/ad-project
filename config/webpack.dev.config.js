@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const { merge } = require('webpack-merge')
 const OpenBrowserPlugin = require('open-browser-webpack4-plugin')
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const webpackBaseConfig = require('./webpack.base.config')
 const mockMiddleware = require('./mock.config')
 
@@ -15,6 +16,9 @@ const webpackDevConfig = {
     new webpack.HotModuleReplacementPlugin(), // 热更新插件
     new OpenBrowserPlugin({
       url: `http://localhost:${PORT}`
+    }),
+    new ForkTsCheckerWebpackPlugin({
+      async: false,
     }),
   ],
   devtool: 'eval-source-map',

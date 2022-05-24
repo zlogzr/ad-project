@@ -1,7 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 const devMode = process.env.NODE_ENV !== 'production'
 
@@ -24,7 +23,8 @@ const webpackBaseConfig = {
     rules: [
       {
         test: /\.jsx?/,
-        use: 'babel-loader'
+        use: 'babel-loader',
+        exclude: /node_modules/
       },
       {
         test: /\.tsx?/,
@@ -33,7 +33,8 @@ const webpackBaseConfig = {
           options: {
             transpileOnly: true
           }
-        }
+        },
+        exclude: /node_modules/
       },
       {
         test: /\.(sc|c)ss/,
@@ -46,9 +47,6 @@ const webpackBaseConfig = {
     ]
   },
   plugins: [
-    new ForkTsCheckerWebpackPlugin({
-      async: false,
-    }),
     new HtmlWebpackPlugin({
       inject: 'body',
       title: 'React APP',

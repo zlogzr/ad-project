@@ -5,7 +5,6 @@ import './style.scss'
 interface IProps {
   history?: any
 }
-
 interface IStates { }
 
 const PromotionData = [
