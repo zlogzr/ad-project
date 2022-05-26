@@ -1,4 +1,15 @@
 .index-page {
+  .setting-icon-box {
+    position: fixed;
+    right: 12px;
+    top: calc(50% - 25px);
+
+    .setting-icon {
+      font-size: 50px;
+      cursor: pointer
+    }
+  }
+
   // .head-box {}
 
   .content-box {

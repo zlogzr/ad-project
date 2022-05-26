@@ -17,6 +17,7 @@ const webpackBaseConfig = {
       Utils: path.join(__dirname, '../src/utils'),
       Components: path.join(__dirname, '../src/components'),
       Common: path.join(__dirname, '../src/common'),
+      Context: path.join(__dirname, '../src/context'),
     }
   },
   module: {

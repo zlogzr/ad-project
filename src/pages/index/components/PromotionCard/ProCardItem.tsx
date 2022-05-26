@@ -2,7 +2,7 @@ import React from 'react'
 import {
   Button, Modal, Radio, InputNumber,
 } from 'antd'
-// import { ThemeContext } from 'context/theme'
+import { ThemeContext } from 'Context/theme'
 import { EditOutlined } from '@ant-design/icons'
 import './style.scss'
 
@@ -110,8 +110,7 @@ class ProCardItem extends React.Component<IProps, IStates> {
           btnStatus ? (
             <div className='btn-wrap'>
               <Button
-                type='primary'
-                // type={this.context.buttonType}
+                type={this.context.buttonType}
                 size='small'
                 onClick={this.handleClick}
               >
@@ -157,6 +156,6 @@ class ProCardItem extends React.Component<IProps, IStates> {
   }
 }
 
-// ProCardItem.contextType = ThemeContext
+ProCardItem.contextType = ThemeContext
 
 export default ProCardItem

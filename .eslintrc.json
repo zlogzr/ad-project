@@ -45,7 +45,7 @@
           ["Utils", "./src/utils"],
           ["Components", "./src/components"],
           ["Common", "./src/common"],
-          ["context", "./src/context"],
+          ["Context", "./src/context"],
           ["api", "./src/api"],
           ["store", "./src/store"]
         ],

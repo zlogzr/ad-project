@@ -6,6 +6,6 @@ export interface ThemType {
 
 const themeContextDefaultValue = {
   buttonType: 'default',
-};
+}
 
-export const themeContext = React.createContext(themeContextDefaultValue);
+export const ThemeContext = React.createContext(themeContextDefaultValue)
