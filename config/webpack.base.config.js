@@ -18,6 +18,8 @@ const webpackBaseConfig = {
       Components: path.join(__dirname, '../src/components'),
       Common: path.join(__dirname, '../src/common'),
       Context: path.join(__dirname, '../src/context'),
+      Api: path.join(__dirname, '../src/api'),
+      Store: path.join(__dirname, '../src/store')
     }
   },
   module: {
@@ -39,11 +41,7 @@ const webpackBaseConfig = {
       },
       {
         test: /\.(sc|c)ss/,
-        use: [
-          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader'
-        ]
+        use: [devMode ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       }
     ]
   },
@@ -53,7 +51,7 @@ const webpackBaseConfig = {
       title: 'React APP',
       filename: 'index.html',
       template: path.join(__dirname, '../src/index.html')
-    }),
+    })
   ]
 }
 

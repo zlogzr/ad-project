@@ -1,80 +1,50 @@
 import React from 'react'
 import { Button } from 'antd'
-// import { connect } from 'react-redux'
+import { connect } from 'react-redux'
 import { ThemeContext } from 'Context/theme'
 import './style.scss'
 
 interface IProps {
-  // fetchUserBalance?: (params?: any) => void
-  // userBalance: any
+  fetchUserBalance?: (params?: any) => void
+  userBalance: any
 }
 
-interface IStates {
-  status: number
-  balance: number
-  creditValue: number
-}
+interface IStates {}
 
 class Account extends React.Component<IProps, IStates> {
-  state = {
-    status: 0, // 0表示账户金未到，1表示已到
-    balance: 0,
-    creditValue: 0,
-  }
-
-  // componentWillMount = () => {
-  //   const params = { name: 'jack' }
-  //   const { fetchUserBalance } = this.props
-  //   if (fetchUserBalance) {
-  //     fetchUserBalance(params)
-  //   }
-  // }
-
-  componentDidMount = () => {
-    setTimeout(() => {
-      this.setState({
-        status: 1,
-        balance: 220,
-        creditValue: 780,
-      })
-    }, 2000)
+  componentWillMount = () => {
+    const params = { name: 'jack111' }
+    const { fetchUserBalance } = this.props
+    if (fetchUserBalance) {
+      fetchUserBalance(params)
+    }
   }
 
   render() {
-    const { status, balance, creditValue } = this.state
-    // const { userBalance } = this.props
-    // const {
-    //   name = '', balance = 0, status = 0, credit = 0,
-    // } = userBalance
+    const { userBalance } = this.props
+    const { name = '', balance = 0, status = 0, credit = 0 } = userBalance
     return (
-      <div className='account-component-box'>
+      <div className="account-component-box">
         <div>
           你好，
-          {/* {name} */}
-          zlog
+          {name}
         </div>
-        <div className='examine'>
-          {
-            status === 0 ? (
-              <div className='status'>开户金未到</div>
-            ) : (
-              <div className='status-ok'>开户金已到</div>
-            )
-          }
-        </div>
-        <div className='balance'>
+        <div className="examine">{status === 0 ? <div className="status">开户金未到</div> : <div className="status-ok">开户金已到</div>}</div>
+        <div className="balance">
           <div>
-            <div className='text'>推广余额</div>
-            <div className='value'>{balance}</div>
+            <div className="text">推广余额</div>
+            <div className="value">{balance}</div>
           </div>
-          <Button type={this.context.buttonType} size='small'>充值</Button>
+          <Button type={this.context.buttonType} size="small">
+            充值
+          </Button>
         </div>
-        <div className='credit'>
+        <div className="credit">
           <div>
-            <div className='text'>合规信用值</div>
-            <div className='value'>{creditValue}</div>
+            <div className="text">合规信用值</div>
+            <div className="value">{credit}</div>
           </div>
-          <div className='detail-text'>详情</div>
+          <div className="detail-text">详情</div>
         </div>
       </div>
     )
@@ -83,22 +53,21 @@ class Account extends React.Component<IProps, IStates> {
 
 Account.contextType = ThemeContext
 
-// const mapStateToProps = (state: any) => {
-//   return {
-//     userBalance: state.index.userBalanceInfo,
-//   }
-// }
+const mapStateToProps = (state: any) => {
+  return {
+    userBalance: state.index.userBalanceInfo
+  }
+}
 
-// const mapDispatchToProps = (dispatch: any) => {
-//   return {
-//     fetchUserBalance: (params: any) => {
-//       dispatch({
-//         type: 'updateUserBalance',
-//         params,
-//       })
-//     },
-//   }
-// }
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    fetchUserBalance: (params: any) => {
+      dispatch({
+        type: 'updateUserBalance',
+        params
+      })
+    }
+  }
+}
 
-// export default connect(mapStateToProps, mapDispatchToProps)(Account)
-export default Account
+export default connect(mapStateToProps, mapDispatchToProps)(Account)

@@ -10,15 +10,9 @@
     "jsx-quotes": "off", // 单引号
     "linebreak-style": "off", // 换行符
     "semi": "off", // 分号
-    "import/no-unresolved": [
-      "error",
-      { "ignore": [".png$", ".webp$", ".jpg$"] }
-    ],
+    "import/no-unresolved": ["error", { "ignore": [".png$", ".webp$", ".jpg$"] }],
     "import/extensions": ["error", "never", { "svg": "always" }],
-    "react/jsx-filename-extension": [
-      "error",
-      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
-    ],
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "no-use-before-define": "off",
     "comma-dangle": "off", // 对象后逗号
     "import/no-extraneous-dependencies": "off",
@@ -35,7 +29,9 @@
     "jsx-a11y/no-static-element-interactions": "off",
     "react/state-in-constructor": "off",
     "react/jsx-props-no-spreading": "off",
-    "react/destructuring-assignment": "off"
+    "react/destructuring-assignment": "off",
+    "func-names": "off",
+    "react/no-deprecated": "off"
   },
   "settings": {
     "import/resolver": {
@@ -46,8 +42,8 @@
           ["Components", "./src/components"],
           ["Common", "./src/common"],
           ["Context", "./src/context"],
-          ["api", "./src/api"],
-          ["store", "./src/store"]
+          ["Api", "./src/api"],
+          ["Store", "./src/store"]
         ],
         "extensions": [".ts", ".tsx", ".js", ".jsx", ".json", ".d.ts"]
       }

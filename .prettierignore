@@ -1,0 +1,9 @@
+/node_modules
+/build
+/disk
+/public
+/mock
+
+package.json
+package-lock.json
+
