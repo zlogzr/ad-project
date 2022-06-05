@@ -31,7 +31,9 @@
     "react/jsx-props-no-spreading": "off",
     "react/destructuring-assignment": "off",
     "func-names": "off",
-    "react/no-deprecated": "off"
+    "react/no-deprecated": "off",
+    "lines-between-class-members": "off",
+    "arrow-parens": "off"
   },
   "settings": {
     "import/resolver": {

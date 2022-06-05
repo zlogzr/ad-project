@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
 import { RouteComponentProps } from 'react-router-dom'
-// import { observer, Provider } from 'mobx-react'
-// import globalStore from 'store/global'
+import { observer, Provider } from 'mobx-react'
+import globalStore from 'Store/global'
 import Header from 'Components/Header'
 import DataTrend from 'Components/DataTrend'
 import Footer from 'Components/Footer'
 import Account from './components/Account'
-// import DataTrend from './components/DataTrend'
 import WaveAnalysis from './components/WaveAnalysis'
 import UserPortrait from './components/UserPortrait'
 import AutoModal from './components/AutoModal'
-// import searchStore from './searchPromotion.store'
+import searchStore from './searchPromotion.store'
 import './style.scss'
+
+interface IProps extends RouteComponentProps {}
 
 const cardData = [
   {
@@ -20,7 +21,7 @@ const cardData = [
     value: 2000,
     persent: '',
     icon: 'assets/imgs/card-icon1',
-    isSelected: true,
+    isSelected: true
   },
   {
     id: '2',
@@ -28,7 +29,7 @@ const cardData = [
     value: 5988,
     persent: '',
     icon: 'assets/imgs/card-icon2',
-    isSelected: false,
+    isSelected: false
   },
   {
     id: '3',
@@ -36,7 +37,7 @@ const cardData = [
     value: 199,
     persent: '',
     icon: 'assets/imgs/card-icon3',
-    isSelected: false,
+    isSelected: false
   },
   {
     id: '4',
@@ -44,7 +45,7 @@ const cardData = [
     value: 20000,
     persent: '',
     icon: 'assets/imgs/card-icon3',
-    isSelected: false,
+    isSelected: false
   },
   {
     id: '5',
@@ -52,69 +53,52 @@ const cardData = [
     value: 8000,
     persent: '',
     icon: 'assets/imgs/card-icon3',
-    isSelected: false,
-  },
+    isSelected: false
+  }
 ]
 
-interface IProps extends RouteComponentProps { }
-
-// @observer
+@observer
 class SearchPromotionPage extends Component<IProps> {
-  state = {
-    autoModalShow: true,
+  componentWillMount = () => {
+    searchStore.getExpiredPlanList()
   }
 
-  // componentWillMount = () => {
-  //   searchStore.getExpiredPlanList()
-  // }
-
   handleAutoModalClick = (type: number, values?: any) => {
-    // searchStore.modalShow = false
-    this.setState({
-      autoModalShow: false
-    })
+    searchStore.modalShow = false
   }
 
   render() {
     const { history } = this.props
-    const { autoModalShow } = this.state
-    // const { modalShow } = searchStore
+    const { modalShow } = searchStore
     return (
-      // <Provider store={searchStore} globalStore={globalStore}>
-      <div className="search-promotion-page-box">
-        <div className="header">
-          <Header
-            history={history}
-          />
+      <Provider store={searchStore} globalStore={globalStore}>
+        <div className="search-promotion-page-box">
+          <div className="header">
+            <Header history={history} />
+          </div>
+          <div className="content">
+            <div className="account-box">
+              <Account />
+            </div>
+            <div className="data-trend-box">
+              <div className="data-trend-title">数据趋势</div>
+              <DataTrend cardData={cardData} />
+            </div>
+            <div className="wave-analysis-box">
+              <div className="title">波动分析</div>
+              <WaveAnalysis />
+            </div>
+            <div className="user-portrait-box">
+              <div className="title">用户画像</div>
+              <UserPortrait />
+            </div>
+          </div>
+          <div className="footer">
+            <Footer />
+          </div>
+          <AutoModal visible={modalShow} onBtnClick={this.handleAutoModalClick} />
         </div>
-        <div className="content">
-          <div className="account-box">
-            <Account />
-          </div>
-          <div className="data-trend-box">
-            <div className="data-trend-title">数据趋势</div>
-            <DataTrend
-              cardData={cardData}
-            />
-          </div>
-          <div className="wave-analysis-box">
-            <div className="title">波动分析</div>
-            <WaveAnalysis />
-          </div>
-          <div className="user-portrait-box">
-            <div className="title">用户画像</div>
-            <UserPortrait />
-          </div>
-        </div>
-        <div className="footer">
-          <Footer />
-        </div>
-        <AutoModal
-          visible={false}
-          onBtnClick={this.handleAutoModalClick}
-        />
-      </div>
-      // </Provider>
+      </Provider>
     )
   }
 }
